@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Delivery</string>
+    <string name="signup">Sign Up</string>
+    
+    <!-- LoginActivity -->
+    <string name="welcome">Welcome!</string>
+	<string name="btn_signin">Sign in</string>
+	<string name="btn_signup">Sign up</string>
+	<string name="hint_username">Enter your username here</string>
+	<string name="hint_password">Enter your password here</string>
+	
+	<!--  SignupActivity -->
+	<string name="username">Username : </string>
+	<string name="username">Username : </string>
+	<string name="username">Username : </string>
+</resources>

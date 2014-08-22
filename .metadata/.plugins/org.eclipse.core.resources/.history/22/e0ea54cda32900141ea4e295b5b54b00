@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Delivery</string>
+    <string name="signup">Sign Up</string>
+    
+    <!-- LoginActivity -->
+    <string name="welcome">Welcome!</string>
+	<string name="btn_signin">Sign in</string>
+	<string name="btn_signup">Sign up</string>
+	<string name="hint_username">Enter your username here</string>
+	<string name="hint_password">Enter your password here</string>
+	
+	<!--  SignupActivity -->
+	<string name="tv_signup_username">Username : </string>
+	<string name="tv_signup_password">Password : </string>
+	<string name="hint_signup_username">E-mail/Username/IC</string>
+	<string name="hint_signup_password">Case Sencetive</string>
+	<string name="hint_signup_password">Case Sencetive</string>
+	<string name="tv_signup_phone">Phone : </string>
+	<string name="tv_signup_email">E-mail : </string>
+	<string name="tv_signup_address">Address : </string>hint_signup_address
+</resources>
