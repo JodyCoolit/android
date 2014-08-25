@@ -5,6 +5,7 @@
     
     <!-- LoginActivity -->
     <string name="welcome">Welcome!</string>
+    <string name="rememberMe"> Remember Me</string>
 	<string name="btn_signin">Sign in</string>
 	<string name="btn_signup">Sign up</string>
 	<string name="hint_username">Enter your username here</string>

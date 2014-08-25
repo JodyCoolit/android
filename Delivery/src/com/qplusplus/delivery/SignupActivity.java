@@ -43,8 +43,8 @@ public class SignupActivity extends Activity{
         .setTitle("Congrats!")
         .setMessage("Register successfully!")
         .setIcon(android.R.drawable.ic_dialog_info)
-        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int whichButton) {
+        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int whichButton){
                 startActivity(i);
             }});
         et_username = (EditText)findViewById(R.id.et_signup_username);
