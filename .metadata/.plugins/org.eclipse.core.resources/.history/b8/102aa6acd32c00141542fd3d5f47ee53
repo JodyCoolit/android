@@ -1,0 +1,84 @@
+package com.qplusplus.delivery;
+
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.Gravity;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class UserActivity extends Activity{
+	private TextView tv_welcome;
+	private SharedPreferences loginPref;
+	private ListView menuList;
+	private String[] menu;
+	private DrawerLayout mainDrawLayout;
+	private ImageButton ib_logo;
+    
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_user);
+		loginPref = getSharedPreferences("login", Context.MODE_PRIVATE);
+		tv_welcome = (TextView)findViewById(R.id.tv_welcome);
+		tv_welcome.setText("Welcome, "+loginPref.getString("username", "")+"!");
+		menuList = (ListView) findViewById(R.id.left_drawer);
+		menu = getResources().getStringArray(R.array.menu_user);
+		mainDrawLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+		menuList.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, menu));
+		ib_logo = (ImageButton)findViewById(R.id.ib_logo);
+		ib_logo.setOnClickListener(new OnClickListener(){
+			public void onClick(View v){
+				if(mainDrawLayout.isDrawerOpen(Gravity.LEFT)){
+					mainDrawLayout.closeDrawer(Gravity.LEFT);
+				}else{
+					mainDrawLayout.openDrawer(Gravity.LEFT);
+				}
+			}
+		});
+		menuList.setOnItemClickListener(new OnItemClickListener(){
+			public void onItemClick(AdapterView<?> parent, View view,int position, long id){
+				showFragment(position);
+			}
+		});
+	}
+	protected void showFragment(int position) {
+		FragmentManager fm = getFragmentManager();
+		FragmentTransaction ft = fm.beginTransaction();
+		switch(position){
+			case 0: Fragment frag_home = new HomeFragment();
+					ft.replace(R.id.content_frame, frag_home);
+				 break;
+			case 1:Fragment frag_newOrder = new HomeFragment();
+			ft.replace(R.id.content_frame, frag_newOrder);
+				 break;
+			case 2:Fragment frag_orderStatus = new HomeFragment();
+			ft.replace(R.id.content_frame, frag_orderStatus);
+				 break;
+			case 3:Fragment frag_message = new HomeFragment();
+			ft.replace(R.id.content_frame, frag_message);
+				 break;
+			case 4:Fragment frag_promotion = new HomeFragment();
+			ft.replace(R.id.content_frame, frag_promotion);
+				 break;
+			case 5:Fragment frag_feedback = new HomeFragment();
+			ft.replace(R.id.content_frame, frag_feedback);
+				 break;
+			case 6:Fragment frag_aboutus = new HomeFragment();
+			ft.replace(R.id.content_frame, frag_home);
+				 break;
+		}
+		ft.commit();
+	}
+
+}

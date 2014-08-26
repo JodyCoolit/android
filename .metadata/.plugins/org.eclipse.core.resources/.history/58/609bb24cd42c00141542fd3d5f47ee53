@@ -1,0 +1,7 @@
+package com.qplusplus.delivery;
+
+
+
+public class OrderStatusFragment extends Fragment{
+	
+}

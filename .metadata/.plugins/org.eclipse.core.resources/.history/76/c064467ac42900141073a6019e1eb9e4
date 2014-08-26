@@ -1,8 +1,0 @@
-package com.qplusplus.delivery;
-
-import android.app.Activity;
-
-public class UserActivity extends Activity{
-	 super.onCreate(savedInstanceState);
-     setContentView(R.layout.activity_login);
-}

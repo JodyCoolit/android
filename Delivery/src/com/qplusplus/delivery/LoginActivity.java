@@ -15,6 +15,11 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
+import com.qplusplus.delivery.admin.AdminActivity;
+import com.qplusplus.delivery.courier.CourierActivity;
+import com.qplusplus.delivery.staff.StaffActivity;
+import com.qplusplus.delivery.user.UserActivity;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -36,7 +41,6 @@ public class LoginActivity extends Activity{
 	private SharedPreferences loginPref;
 	private Editor loginEditor;
 	private CheckBox cb_rememberMe;
-	private Toast toast;
 	private Intent i_signup,i_user,i_admin,i_staff,i_courier;
 	private boolean doubleBackToExitPressedOnce;
 	public void onBackPressed(){

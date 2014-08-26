@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="40sp"
+    android:orientation="horizontal"
+    >
+    <ImageButton
+       	android:id="@+id/ib_logo"
+        android:layout_width="40sp"
+        android:layout_height="40sp"
+        android:src = "@drawable/logo"
+        />
+    <TextView
+        android:id="@+id/tv_welcome"
+        android:textSize="30sp"
+        android:textStyle="italic"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+    </LinearLayout>
+	<android.support.v4.widget.DrawerLayout
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:id="@+id/drawer_layout"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent">
+	    <!-- The main content view -->
+	    <FrameLayout
+	        android:id="@+id/content_frame"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent" >
+	        <fragment 
+	            class="com.qplusplus.delivery.HomeFragment"
+	            android:id="@+id/frag_user_home"
+	            android:layout_width="match_parent" 
+	            android:layout_height="match_parent"
+             />
+	    </FrameLayout>
+	    <!-- The navigation drawer -->
+	    <ListView android:id="@+id/left_drawer"
+	        android:layout_width="150dp"
+	        android:layout_height="match_parent"
+	        android:layout_gravity="start"
+	        android:choiceMode="singleChoice"
+	        android:divider="@android:color/transparent"
+	        android:dividerHeight="1dp"
+	        android:background="#87CEFA"/>
+	     
+	</android.support.v4.widget.DrawerLayout>
+</LinearLayout>

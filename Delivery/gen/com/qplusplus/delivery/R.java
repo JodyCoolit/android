@@ -16,6 +16,11 @@ public final class R {
         public static final int abc_slide_out_bottom=0x7f040004;
         public static final int abc_slide_out_top=0x7f040005;
     }
+    public static final class array {
+        /**  UserActivity 
+         */
+        public static final int menu_user=0x7f0c0000;
+    }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
@@ -1071,6 +1076,8 @@ containing a value of this type.
         public static final int bg_login=0x7f020057;
         public static final int bg_signup=0x7f020058;
         public static final int ic_launcher=0x7f020059;
+        public static final int login=0x7f02005a;
+        public static final int logo=0x7f02005b;
     }
     public static final class id {
         public static final int action_bar=0x7f05001c;
@@ -1093,9 +1100,11 @@ containing a value of this type.
         public static final int cb_rememberMe=0x7f05003e;
         public static final int checkbox=0x7f05002d;
         public static final int collapseActionView=0x7f05000d;
+        public static final int content_frame=0x7f050050;
         public static final int default_activity_button=0x7f050028;
         public static final int dialog=0x7f05000e;
         public static final int disableHome=0x7f050008;
+        public static final int drawer_layout=0x7f05004f;
         public static final int dropdown=0x7f05000f;
         public static final int edit_query=0x7f050030;
         public static final int end=0x7f050013;
@@ -1110,9 +1119,11 @@ containing a value of this type.
         public static final int expanded_menu=0x7f05002c;
         public static final int home=0x7f050014;
         public static final int homeAsUp=0x7f050005;
+        public static final int ib_logo=0x7f05004d;
         public static final int icon=0x7f05002a;
         public static final int ifRoom=0x7f05000a;
         public static final int image=0x7f050027;
+        public static final int left_drawer=0x7f050051;
         public static final int listMode=0x7f050001;
         public static final int list_item=0x7f050029;
         public static final int middle=0x7f050012;
@@ -1142,12 +1153,13 @@ containing a value of this type.
         public static final int tabMode=0x7f050002;
         public static final int title=0x7f05002b;
         public static final int top_action_bar=0x7f050020;
+        public static final int tv_fragment_home=0x7f050052;
         public static final int tv_signup_address=0x7f05004a;
         public static final int tv_signup_email=0x7f050048;
         public static final int tv_signup_password=0x7f050044;
         public static final int tv_signup_phone=0x7f050046;
         public static final int tv_signup_username=0x7f050042;
-        public static final int tv_welcome=0x7f05004d;
+        public static final int tv_welcome=0x7f05004e;
         public static final int up=0x7f050021;
         public static final int useLogo=0x7f050003;
         public static final int withText=0x7f05000c;
@@ -1208,7 +1220,14 @@ containing a value of this type.
         public static final int activity_signup=0x7f03001b;
         public static final int activity_staff=0x7f03001c;
         public static final int activity_user=0x7f03001d;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001e;
+        public static final int fragment_user_aboutus=0x7f03001e;
+        public static final int fragment_user_feedback=0x7f03001f;
+        public static final int fragment_user_home=0x7f030020;
+        public static final int fragment_user_message=0x7f030021;
+        public static final int fragment_user_neworder=0x7f030022;
+        public static final int fragment_user_orderstatus=0x7f030023;
+        public static final int fragment_user_promotion=0x7f030024;
+        public static final int support_simple_spinner_dropdown_item=0x7f030025;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 

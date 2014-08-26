@@ -1,0 +1,8 @@
+package com.qplusplus.delivery;
+
+import android.app.Fragment;
+
+
+public class AboutUsFragment extends Fragment{
+
+}

@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="cb_rememberMe" key="selection"/>
+		<item value="Toast" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="toast"/>
+			<item value="loginSession"/>
+			<item value="loginEditor"/>
 			<item value="cb_rememberMe"/>
 			<item value="loginPref"/>
 			<item value="username"/>
 			<item value="requestFocus"/>
 			<item value="toggleMenu"/>
-			<item value="btMenu"/>
-			<item value="R.id"/>
-			<item value="compareTo"/>
 		</list>
 		<list key="replacehistory">
 		</list>
