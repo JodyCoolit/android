@@ -17,8 +17,11 @@ import org.apache.http.message.BasicNameValuePair;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -32,12 +35,16 @@ public class SignupActivity extends Activity{
 	private EditText et_phone;
 	private EditText et_email;
 	private EditText et_address;
+	private SharedPreferences loginPref;
+	private Editor loginEditor;
 	private String [] regInfo = new String[5];
 	private AlertDialog.Builder d;
 	private Intent i;
 	protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+        loginPref = getSharedPreferences("login", Context.MODE_PRIVATE);
+    	loginEditor = loginPref.edit();
         i = new Intent(this,LoginActivity.class);
         d = new AlertDialog.Builder(this)
         .setTitle("Congrats!")
@@ -77,6 +84,7 @@ public class SignupActivity extends Activity{
 
         protected void onPostExecute(Boolean result){
         	if(result){
+        		loginEditor.putBoolean("loginSession", false);
         		d.show();
         	}
         }
@@ -91,7 +99,7 @@ public class SignupActivity extends Activity{
 			System.out.println(username+" "+password);
 			HttpClient httpclient = new DefaultHttpClient();
 			BufferedReader in = null;
-			HttpPost httppost = new HttpPost("http://192.168.1.157:8080/delivery/register.php");
+			HttpPost httppost = new HttpPost(StaticIP.ip+"register.php");
 			try {
 		        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
 		        nameValuePairs.add(new BasicNameValuePair("username", username));

@@ -15,8 +15,8 @@
 	<string name="tv_signup_username">Username : </string>
 	<string name="tv_signup_password">Password : </string>
 	<string name="hint_signup_username">E-mail/Username/IC</string>
-	<string name="hint_signup_password">Case Sencetive</string>
-	<string name="hint_signup_address">Address for delivery</string>
+	<string name="hint_signup_password">Case Sensitive</string>
+	<string name="hint_signup_address"></string>
 	<string name="tv_signup_phone">Phone : </string>
 	<string name="tv_signup_email">E-mail : </string>
 	<string name="tv_signup_address">Address : </string>
@@ -30,6 +30,8 @@
 	    <item>Message</item>
 	    <item>Promotion</item>
 	    <item>Feedback</item>
-	    <item>About us</item>
+	    <item>Settings</item>
+	    <item>About Us</item>
+	    <item>Log Out</item>
 	</string-array>
 </resources>

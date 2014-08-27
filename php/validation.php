@@ -3,9 +3,9 @@
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 	
-	//$con = mysqli_connect("www.nmmapp.com", "yeospace_1B14037", "HuangQian2014","yeospace_1B14037"); 
+	$con = mysqli_connect("www.nmmapp.com", "yeospace_1B14037", "HuangQian2014","yeospace_1B14037"); 
 	
-	$con = mysqli_connect("localhost", "root", "","delivery");
+	//$con = mysqli_connect("localhost", "root", "","delivery");
 	$sql = "select * from users where username ='$username'";
 	$result = mysqli_query($con,$sql);
 	if (!$result){

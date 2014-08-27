@@ -12,11 +12,11 @@
 		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
 		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\apr14mpsip\Desktop\MyPersonalTrainer"/>
 			<item value="C:\Users\apr14mpsip\Desktop\MyPersonalLearner\appcompat_v7"/>
 			<item value="C:\Users\apr14mpsip\Desktop\MyPersonalLearner"/>
 			<item value="C:\Users\apr14mpsip\Desktop\chat_socket_server"/>
 			<item value="C:\Users\apr14mpsip\Desktop\chat_socket_client"/>
-			<item value="C:\Users\apr14mpsip\Desktop\html5-webapp-jetty"/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
 			<item value=""/>

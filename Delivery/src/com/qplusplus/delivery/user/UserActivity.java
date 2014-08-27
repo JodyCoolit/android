@@ -1,14 +1,20 @@
 package com.qplusplus.delivery.user;
 
+import com.qplusplus.delivery.LoginActivity;
 import com.qplusplus.delivery.R;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,16 +25,38 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class UserActivity extends Activity{
 	private TextView tv_welcome;
 	private SharedPreferences loginPref;
+	private Editor loginEditor;
 	private ListView menuList;
 	private String[] menu;
 	private DrawerLayout mainDrawLayout;
 	private ImageButton ib_logo;
 	private FragmentManager fm = getFragmentManager();
 	private FragmentTransaction ft = fm.beginTransaction();
+	private AlertDialog.Builder d;
+	private Intent i;
+	private boolean doubleBackToExitPressedOnce;
+	private Intent intent_exit;
+
+	public void onBackPressed(){
+	    if (doubleBackToExitPressedOnce) {
+	        startActivity(intent_exit);
+	        return;
+	    }
+
+	    this.doubleBackToExitPressedOnce = true;
+	    Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+	    new Handler().postDelayed(new Runnable() {
+	        public void run(){
+	            doubleBackToExitPressedOnce=false;                  
+	        }
+	    }, 2000);
+	}
 	private class drawerListener implements OnClickListener{
 		public void onClick(View v) {
 			if(mainDrawLayout.isDrawerOpen(Gravity.LEFT)){
@@ -41,6 +69,30 @@ public class UserActivity extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_user);
+		i = new Intent(this,LoginActivity.class);
+		intent_exit = new Intent(Intent.ACTION_MAIN);
+		intent_exit.addCategory(Intent.CATEGORY_HOME);
+		intent_exit.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		loginPref = getSharedPreferences("login", Context.MODE_PRIVATE);
+		loginEditor = loginPref.edit();
+		d = new AlertDialog.Builder(this)
+        .setTitle("Alert!")
+        .setMessage("Are you sure?")
+        .setIcon(android.R.drawable.ic_dialog_info)
+        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener(){
+            public void onClick(DialogInterface dialog, int whichButton){
+            	loginEditor.remove("username");
+            	loginEditor.remove("password");
+            	loginEditor.remove("role");
+            	loginEditor.putBoolean("loginSession", false);
+            	loginEditor.commit();
+                startActivity(i);
+            }}).setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener(){
+				public void onClick(DialogInterface dialog, int which) {
+					//nothing happen
+				}
+            	
+            });
 		Fragment frag_home = new HomeFragment();
 		ft.replace(R.id.content_frame, frag_home);
 		ft.commit();
@@ -115,6 +167,8 @@ public class UserActivity extends Activity{
 				ft.replace(R.id.content_frame, frag_aboutus);
 				System.out.println(position);
 				 break;
+			case 7:d.show();
+				return;
 		}
 		ft.commit();
 	}

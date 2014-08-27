@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_signup" >
+	<LinearLayout
+	    android:layout_width="match_parent"
+   		android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:layout_marginTop="100sp"
+	    >
+	    <TextView
+        android:id="@+id/tv_signup_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_signup_username"
+        android:textColor="#A726B5" />
+	    <EditText
+        android:id="@+id/et_signup_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10" 
+        android:hint="@string/hint_signup_username"
+        android:textColor="#26B58F"
+        android:singleLine="true">
+    </EditText>
+	</LinearLayout>
+    
+	<LinearLayout
+	    android:layout_width="match_parent"
+   		android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    >
+		 <TextView
+		    android:id="@+id/tv_signup_password"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="@string/tv_signup_password"
+		    android:textColor="#A726B5" />
+		
+		<EditText
+		    android:id="@+id/et_signup_password"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content" 
+		    android:ems="10"
+		    android:inputType="textPassword"
+		    android:hint="@string/hint_signup_password"
+		    android:textColor="#26B58F"
+		    android:singleLine="true" />
+	</LinearLayout>
+	<LinearLayout
+	    android:layout_width="match_parent"
+   		android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    >
+		 <TextView
+		    android:id="@+id/tv_signup_phone"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="@string/tv_signup_phone"
+		    android:textColor="#A726B5" />
+		
+		<EditText
+		    android:id="@+id/et_signup_phone"
+		    android:layout_marginLeft="25sp"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:ems="10"
+		    android:inputType="phone"
+		    android:textColor="#26B58F"
+		    android:singleLine="true" />
+	</LinearLayout>
+	
+	<LinearLayout
+	    android:layout_width="match_parent"
+   		android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    >
+		 <TextView
+		    android:id="@+id/tv_signup_email"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="@string/tv_signup_email"
+		    android:textColor="#A726B5" />
+		
+		<EditText
+		    android:id="@+id/et_signup_email"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:ems="10"
+		    android:inputType="textEmailAddress"
+		    android:textColor="#26B58F"
+		    android:singleLine="true" />
+	</LinearLayout>
+	
+	<LinearLayout
+	    android:layout_width="match_parent"
+   		android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    >
+		 <TextView
+		    android:id="@+id/tv_signup_address"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="@string/tv_signup_address"
+		    android:textColor="#A726B5" />
+		
+		<EditText
+		    android:id="@+id/et_signup_address"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:ems="10"
+		    android:textColor="#26B58F"
+		    android:hint="@string/hint_signup_address"
+		    android:singleLine="true" />
+	</LinearLayout>
+	<Button
+	    android:id="@+id/btn_signup_register"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="@string/btn_signup_register"
+	    android:textColor="#A726B5" />
+</LinearLayout>

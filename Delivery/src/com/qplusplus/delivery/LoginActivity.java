@@ -21,6 +21,7 @@ import com.qplusplus.delivery.staff.StaffActivity;
 import com.qplusplus.delivery.user.UserActivity;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -37,7 +38,7 @@ public class LoginActivity extends Activity{
 	private Button btn_signin;
 	private EditText et_username;
 	private EditText et_password;
-	private ProgressBar pb;
+	private ProgressDialog pd;
 	private SharedPreferences loginPref;
 	private Editor loginEditor;
 	private CheckBox cb_rememberMe;
@@ -53,10 +54,8 @@ public class LoginActivity extends Activity{
 	    Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
 
 	    new Handler().postDelayed(new Runnable() {
-
-	        @Override
-	        public void run() {
-	            doubleBackToExitPressedOnce=false;                       
+	        public void run(){
+	            doubleBackToExitPressedOnce=false;                  
 	        }
 	    }, 2000);
 	}
@@ -68,16 +67,17 @@ public class LoginActivity extends Activity{
         btn_signin = (Button)findViewById(R.id.btn_signin);
         et_username = (EditText)findViewById(R.id.et_login_username);
         et_password = (EditText)findViewById(R.id.et_login_password);
-        pb = (ProgressBar)findViewById(R.id.pb_login);
         cb_rememberMe = (CheckBox)findViewById(R.id.cb_rememberMe);
-        pb.setVisibility(View.GONE);
         loginPref = getSharedPreferences("login", Context.MODE_PRIVATE);
     	loginEditor = loginPref.edit();
+    	pd = new ProgressDialog(this);
     	if(loginPref.getBoolean("loginSession",false)){
     		et_username.setText(loginPref.getString("username", ""));
     		et_password.setText(loginPref.getString("password", ""));
     		cb_rememberMe.setChecked(true);
     		new signinTask().execute(et_username.getText().toString(),et_password.getText().toString());
+    	}else{
+    		cb_rememberMe.setChecked(false);
     	}
         i_signup = new Intent(this,SignupActivity.class);
         i_user = new Intent(this,UserActivity.class);
@@ -93,7 +93,7 @@ public class LoginActivity extends Activity{
         btn_signin.setOnClickListener(new View.OnClickListener(){
         	public void onClick(View v){
         		if(et_username.getText().toString().matches("")||et_password.getText().toString().matches("")){
-        			Toast.makeText(getApplicationContext(), "Please fill all blank",
+        			Toast.makeText(getApplicationContext(), "Please fill in the blanks",
         				     Toast.LENGTH_SHORT).show();
         		}else{
         			new signinTask().execute(et_username.getText().toString(),et_password.getText().toString());
@@ -106,8 +106,14 @@ public class LoginActivity extends Activity{
     	String username;
     	String password;
     	String result = "";
+    	protected void onPreExecute() {
+    		pd.setIndeterminate(false);
+    		pd.setMessage("Please wait...");
+            pd.show();
+        }
+
         protected void onProgressUpdate(Integer... progress){
-        	pb.setVisibility(View.VISIBLE);
+        	pd.dismiss();
         }
 
         protected void onPostExecute(String result){
@@ -141,7 +147,6 @@ public class LoginActivity extends Activity{
             	loginEditor.putBoolean("loginSession", false);
             }
             loginEditor.commit();
-            pb.setVisibility(View.GONE);
         }
 
 		protected String doInBackground(String... params){
@@ -151,7 +156,7 @@ public class LoginActivity extends Activity{
 			Log.i("password",password);
 			HttpClient httpclient = new DefaultHttpClient();
 			BufferedReader in = null;
-			HttpPost httppost = new HttpPost("http://192.168.1.157:8080/delivery/validation.php");
+			HttpPost httppost = new HttpPost(StaticIP.ip+"validation.php");
 			try {
 		        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
 		        nameValuePairs.add(new BasicNameValuePair("username", username));

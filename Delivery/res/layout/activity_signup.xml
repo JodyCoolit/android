@@ -42,7 +42,7 @@
 		<EditText
 		    android:id="@+id/et_signup_password"
 		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
+		    android:layout_height="wrap_content" 
 		    android:ems="10"
 		    android:inputType="textPassword"
 		    android:hint="@string/hint_signup_password"
@@ -63,6 +63,7 @@
 		
 		<EditText
 		    android:id="@+id/et_signup_phone"
+		    android:layout_marginLeft="23sp"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:ems="10"
@@ -85,6 +86,7 @@
 		
 		<EditText
 		    android:id="@+id/et_signup_email"
+		    android:layout_marginLeft="24sp"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:ems="10"
@@ -107,6 +109,7 @@
 		
 		<EditText
 		    android:id="@+id/et_signup_address"
+		    android:layout_marginLeft="10sp"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
 		    android:ems="10"

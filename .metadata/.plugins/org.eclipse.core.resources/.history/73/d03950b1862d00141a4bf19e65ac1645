@@ -1,0 +1,5 @@
+package com.qplusplus.delivery;
+
+public class StaticIP {
+	public static String ip = "http://192.168.1.157:8080/delivery";
+}
